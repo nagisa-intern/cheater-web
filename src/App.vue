@@ -10,4 +10,17 @@ export default {
 }
 </script>
 <style>
+html, body {
+  background-color: #fefefe;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+a {
+  color: inherit;
+}
 </style>
