@@ -18,7 +18,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
 html, body {
   background-color: #fefefe;
 }
@@ -34,5 +34,8 @@ a {
 }
 .routerView {
   padding: 20px 50px 100px;
+  * {
+    color: #333;
+  }
 }
 </style>
