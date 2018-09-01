@@ -19,7 +19,7 @@ export default new Router({
       component: Comic
     },
     {
-      path: '/comics/:comicId/episodes/:episodeId',
+      path: '/comics/:comicId/episodes/:episodeNumber',
       name: 'Episode',
       component: Episode
     }

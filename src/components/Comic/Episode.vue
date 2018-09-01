@@ -1,13 +1,26 @@
 <template lang="pug">
 div
-  img.episode__thumb(:src="getImage()")
+  router-link(
+    :to="{name: 'Episode', params: {comidId: comicId, episodeNumber: episode.episode_number}}")
+    img.episode__thumb(:src="getImage()")
+    .episode__title
+      h2 {{ episode.title}}
+      p {{ episode.episode_number }}話
 </template>
 <script>
 export default {
   props: ['episode'],
+  data () {
+    return {
+      comidId: 0
+    }
+  },
+  created () {
+    this.comicId = this.$route.params.comicId
+  },
   methods: {
     getImage () {
-      return `https://s3-ap-northeast-1.amazonaws.com/nagisa-intern/data/${this.$route.params.comicId}/${this.episode.episode_number}/0000.jpeg`
+      return `https://s3-ap-northeast-1.amazonaws.com/nagisa-intern/data/${this.comicId}/${this.episode.episode_number}/0000.jpeg`
     }
   }
 }
@@ -16,6 +29,12 @@ export default {
 .episode {
   &__thumb {
     width: 200px;
+  }
+  &__title {
+    vertical-align: middle;
+    > * {
+      display: inline-block;
+    }
   }
 }
 </style>

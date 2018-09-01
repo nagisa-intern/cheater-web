@@ -1,7 +1,7 @@
 <template lang="pug">
 #app
   Header
-  router-view
+  router-view.routerView
 </template>
 <script>
 import Header from './components/Header'
@@ -31,5 +31,8 @@ html, body {
 }
 a {
   color: inherit;
+}
+.routerView {
+  padding: 20px 50px 100px;
 }
 </style>
