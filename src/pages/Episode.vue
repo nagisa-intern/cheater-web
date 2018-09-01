@@ -1,5 +1,6 @@
 <template lang="pug">
 div
+  router-link(:to="{ name: 'Comic', params: { comicId: $route.params.comicId } }") コミックに戻る
   div.page__console
     div.console.-left
       icon.icon(name="chevron-left" @click.native="pageMove(-1)")
