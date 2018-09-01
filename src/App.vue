@@ -1,14 +1,13 @@
-<template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+<template lang="pug">
+#app
+  Header
+  router-view
 </template>
-
 <script>
+import Header from './components/Header'
 export default {
+  components: { Header }
 }
 </script>
-
 <style>
 </style>
