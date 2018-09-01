@@ -11,7 +11,8 @@ div
 export default {
   data () {
     return {
-      pageNumber: 0
+      pageNumber: 0,
+      pageMax: 4
     }
   },
   created () {
@@ -27,6 +28,9 @@ export default {
     pageMove (move) {
       const newPageNumber = parseInt(this.pageNumber) + parseInt(move)
       if (newPageNumber < 0) {
+        return
+      }
+      if (this.pageMax < newPageNumber) {
         return
       }
       this.$router.push({query: { page: newPageNumber }})
