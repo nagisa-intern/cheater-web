@@ -10,14 +10,17 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Top',
       component: Top
     },
     {
       path: '/comics/:comicId',
+      name: 'Comic',
       component: Comic
     },
     {
       path: '/comics/:comicId/episodes/:episodeId',
+      name: 'Episode',
       component: Episode
     }
   ]
