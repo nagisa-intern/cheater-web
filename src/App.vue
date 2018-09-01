@@ -5,8 +5,17 @@
 </template>
 <script>
 import Header from './components/Header'
+import api from '@/utils/Api'
 export default {
-  components: { Header }
+  components: { Header },
+  created () {
+    api('GET',
+      'https://cheater-api.herokuapp.com/',
+      {}
+    ).then(response => {
+      console.log(response.data.message)
+    })
+  }
 }
 </script>
 <style>

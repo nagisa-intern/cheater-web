@@ -1,12 +1,14 @@
 <template lang="pug">
 div
   ComicHeader(:comic="comic")
+  Episodes(:episodes="comic.episodes")
 </template>
 <script>
 import ComicHeader from '@/components/Comic/ComicHeader'
+import Episodes from '@/components/Comic/Episodes'
 import api from '@/utils/Api'
 export default {
-  components: { ComicHeader },
+  components: { ComicHeader, Episodes },
   data () {
     return {
       comic: {}
