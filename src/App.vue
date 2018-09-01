@@ -28,6 +28,7 @@ html, body {
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  font-family: 'M PLUS 1p', sans-serif;
 }
 a {
   color: inherit;
