@@ -1,16 +1,16 @@
 <template lang="pug">
 div
   h2 人気のページ
-  TopPages(:pages="pages")
+  Pages(:pages="pages")
   h2 コミック一覧
   Comics(:comics="comics")
 </template>
 <script>
-import TopPages from '@/components/Top/TopPages'
+import Pages from '@/components/Top/Pages'
 import Comics from '@/components/Top/Comics'
 import api from '@/utils/Api'
 export default {
-  components: { TopPages, Comics },
+  components: { Pages, Comics },
   data () {
     return {
       pages: [],
