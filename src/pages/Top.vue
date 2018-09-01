@@ -24,6 +24,12 @@ export default {
     ).then(response => {
       this.pages = response.data
     })
+    api('GET',
+      'https://api.myjson.com/bins/rvdec',
+      {}
+    ).then(response => {
+      this.comics = response.data
+    })
   }
 }
 </script>
