@@ -1,6 +1,7 @@
 <template lang="pug">
 div
-  img(:src="getImage()")
+  router-link(:to="{ name: 'Comic', params: { comicId: comic.id } }")
+    img(:src="getImage()")
 </template>
 <script>
 export default {
