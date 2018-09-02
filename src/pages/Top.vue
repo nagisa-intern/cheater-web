@@ -21,7 +21,7 @@ export default {
   },
   created () {
     api('GET',
-      process.env.API_ENDPOINT + '/ranking?number=11',
+      process.env.API_ENDPOINT + '/ranking?number=14',
       // 'https://api.myjson.com/bins/tdt9w',
       {}
     ).then(response => {
@@ -45,7 +45,7 @@ export default {
     getRanking () {
       // this.even = !this.even
       api('GET',
-        process.env.API_ENDPOINT + '/ranking?number=11',
+        process.env.API_ENDPOINT + '/ranking?number=14',
         // this.even ? 'https://api.myjson.com/bins/tdt9w' : 'https://api.myjson.com/bins/12dgic',
         {}
       ).then(response => {
