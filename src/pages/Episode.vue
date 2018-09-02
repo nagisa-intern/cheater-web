@@ -29,6 +29,10 @@ export default {
     ).then(response => {
       this.episode = response.data
     })
+    setInterval(() => {
+      console.log(123)
+      // this.postPoint()
+    }, 5000)
   },
   methods: {
     getImage () {
@@ -44,6 +48,16 @@ export default {
       }
       this.$router.push({query: { page: newPageNumber }})
       this.pageNumber = newPageNumber
+    },
+    postPoint () {
+      api('POST',
+        process.env.API_ENDPOINT + '/pages/' + this.pageNumber,
+        { time: 1000 }
+      ).then(response => {
+        console.log(response)
+      }).catch(error => {
+        console.log(error)
+      })
     }
   }
 }
