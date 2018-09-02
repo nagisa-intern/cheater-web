@@ -4,8 +4,7 @@ div
     :to="{name: 'Episode', params: {comidId: comicId, episodeNumber: episode.episode_number}}")
     img.episode__thumb(:src="getImage()")
     .episode__title
-      h2 {{ episode.title}}
-      p {{ episode.episode_number }}話
+      h2 {{ episode.title }}
 </template>
 <script>
 export default {
@@ -20,7 +19,7 @@ export default {
   },
   methods: {
     getImage () {
-      return `https://s3-ap-northeast-1.amazonaws.com/nagisa-intern/data/${this.comicId}/${this.episode.episode_number}/0000.jpeg`
+      return `https://s3-ap-northeast-1.amazonaws.com/nagisa-intern/data/${this.comicId}/${this.episode.episode}/0000.jpeg`
     }
   }
 }
