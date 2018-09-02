@@ -36,14 +36,13 @@ export default {
     })
     this.intervalId = setInterval(() => {
       this.getRanking()
-    }, 2000)
+    }, 5000)
   },
   beforeDestroy () {
     clearInterval(this.intervalId)
   },
   methods: {
     getRanking () {
-      console.log(123)
       // this.even = !this.even
       api('GET',
         process.env.API_ENDPOINT + '/ranking?number=11',

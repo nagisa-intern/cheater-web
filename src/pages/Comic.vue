@@ -16,7 +16,7 @@ export default {
   },
   created () {
     api('GET',
-      process.env.API_ENDPOINT + '/comics/' + this.comic.id,
+      process.env.API_ENDPOINT + '/comics/' + this.$route.params.comicId,
       // 'https://api.myjson.com/bins/10l5p0',
       {}
     ).then(response => {
