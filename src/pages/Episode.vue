@@ -55,7 +55,7 @@ export default {
     postPoint () {
       api('POST',
         process.env.API_ENDPOINT + '/pages/' + this.episode.pages[this.pageNumber].id,
-        { time: 10000 }
+        { time: 1000 }
       ).then(response => {
         console.log(response)
       }).catch(error => {
