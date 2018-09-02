@@ -1,8 +1,12 @@
 <template lang="pug">
 div
-  h2 人気のページ
+  h2
+    icon.icon(name="chart-line")
+    | 今人気のページ
   Pages.pages(:pages="pages")
-  h2 コミック一覧
+  h2
+    icon.icon(name="book-open")
+    | コミック一覧
   Comics(:comics="comics")
 </template>
 <script>
@@ -59,5 +63,18 @@ export default {
 .pages {
   overflow: hidden;
   margin-bottom: 100px;
+}
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  border-left: 15px solid skyblue;
+  border-bottom: 2px solid skyblue;
+  padding-left: 10px;
+  .icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 3px;
+    vertical-align: middle;
+  }
 }
 </style>

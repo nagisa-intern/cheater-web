@@ -25,7 +25,7 @@ a {
   color: inherit;
 }
 .routerView {
-  padding: 20px 50px 100px;
+  padding: 50px 50px 100px;
   * {
     color: #333;
   }
