@@ -36,7 +36,7 @@ export default {
     })
     this.intervalId = setInterval(() => {
       this.getRanking()
-    }, 5000)
+    }, 3000)
   },
   beforeDestroy () {
     clearInterval(this.intervalId)

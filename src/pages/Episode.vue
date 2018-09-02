@@ -14,7 +14,8 @@ export default {
   data () {
     return {
       episode: {},
-      pageNumber: 0
+      pageNumber: 0,
+      intervalId: 0
     }
   },
   created () {
@@ -29,10 +30,12 @@ export default {
     ).then(response => {
       this.episode = response.data
     })
-    setInterval(() => {
-      console.log(123)
+    this.intervalId = setInterval(() => {
       // this.postPoint()
-    }, 5000)
+    }, 1000)
+  },
+  beforeDestroy () {
+    clearInterval(this.intervalId)
   },
   methods: {
     getImage () {
