@@ -1,10 +1,11 @@
 <template lang="pug">
-div
+div.comicHeader
   img(v-if="comic.id" :src="getThumb()")
-  h1 タイトル：{{ comic.title }}
-  h3.authors
-    span.authors__item(v-for="author in comic.authors") 著者：{{ author.name }}
-  p 説明文：{{ comic.summary }}
+  div.detail
+    h1 {{ comic.title }}
+    h3.authors
+      span.authors__item(v-for="author in comic.authors") 著者：{{ author.name }}
+    p {{ comic.summary }}
 </template>
 <script>
 export default {
@@ -17,11 +18,24 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.comicHeader {
+  overflow: hidden;
+  margin-bottom: 30px;
+}
 .authors {
   &__item {
     &:not(:last-child):after {
       content: ","
     }
   }
+}
+img {
+  width: 640px;
+  float: left;
+}
+.detail {
+  padding: 20px;
+  width: calc(100% - 640px);
+  float: left;
 }
 </style>

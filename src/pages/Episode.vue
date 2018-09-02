@@ -1,12 +1,12 @@
 <template lang="pug">
 div
   router-link(:to="{ name: 'Comic', params: { comicId: $route.params.comicId } }") コミックに戻る
-  div.page__console
+  .main
     div.console.-left
       icon.icon(name="chevron-left" @click.native="pageMove(-1)")
+    img.content(:src="getImage()")
     div.console.-right
       icon.icon(name="chevron-right" @click.native="pageMove(1)")
-  img(:src="getImage()")
 </template>
 <script>
 import api from '@/utils/Api'
@@ -20,18 +20,18 @@ export default {
   },
   created () {
     if (!this.$route.query.page) {
-      this.$router.push({query: { page: 0 }})
+      this.$router.push({query: { page: 0, episodeId: this.$route.query.episodeId }})
     }
     this.pageNumber = this.$route.query.page
     api('GET',
-      process.env.API_ENDPOINT + '/episodes/' + this.$route.params.episodeNumber,
+      process.env.API_ENDPOINT + '/episodes/' + this.$route.query.episodeId,
       // 'https://api.myjson.com/bins/f5jx0',
       {}
     ).then(response => {
       this.episode = response.data
     })
     this.intervalId = setInterval(() => {
-      // this.postPoint()
+      this.postPoint()
     }, 1000)
   },
   beforeDestroy () {
@@ -49,13 +49,13 @@ export default {
       if (this.episode.pages.length < newPageNumber) {
         return
       }
-      this.$router.push({query: { page: newPageNumber }})
+      this.$router.push({query: { page: newPageNumber, episodeId: this.$route.query.episodeId }})
       this.pageNumber = newPageNumber
     },
     postPoint () {
       api('POST',
-        process.env.API_ENDPOINT + '/pages/' + this.pageNumber,
-        { time: 1000 }
+        process.env.API_ENDPOINT + '/pages/' + this.episode.pages[this.pageNumber].id,
+        { time: 10000 }
       ).then(response => {
         console.log(response)
       }).catch(error => {
@@ -66,18 +66,20 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.page {
-  &__console {
-    clear: both;
-    overflow: hidden;
-    .console {
-      float: left;
-      .icon {
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-      }
-    }
+.main {
+  margin-top: 30px;
+  > * {
+    float: left;
+    height: 600px;
+  }
+  .icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-top: 250px;
+  }
+  .content {
+    border: 1px solid #333;
   }
 }
 </style>
