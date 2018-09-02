@@ -15,34 +15,37 @@ export default {
     return {
       pages: [],
       comics: [],
+      intervalId: 0,
       even: true
     }
   },
   created () {
     api('GET',
-      // process.env.API_ENDPOINT + '/ranking?number=11',
-      'https://api.myjson.com/bins/tdt9w',
+      process.env.API_ENDPOINT + '/ranking?number=11',
+      // 'https://api.myjson.com/bins/tdt9w',
       {}
     ).then(response => {
       this.pages = response.data
     })
     api('GET',
-      // process.env.API_ENDPOINT + '/comics_list?number=10',
-      'https://api.myjson.com/bins/c6dw4',
+      process.env.API_ENDPOINT + '/comics_list?number=10',
+      // 'https://api.myjson.com/bins/c6dw4',
       {}
     ).then(response => {
       this.comics = response.data
     })
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       this.getRanking()
     }, 5000)
+  },
+  beforeDestroy () {
   },
   methods: {
     getRanking () {
       this.even = !this.even
       api('GET',
-        // process.env.API_ENDPOINT + '/ranking?number=11',
-        this.even ? 'https://api.myjson.com/bins/tdt9w' : 'https://api.myjson.com/bins/12dgic',
+        process.env.API_ENDPOINT + '/ranking?number=11',
+        // this.even ? 'https://api.myjson.com/bins/tdt9w' : 'https://api.myjson.com/bins/12dgic',
         {}
       ).then(response => {
         this.pages = response.data

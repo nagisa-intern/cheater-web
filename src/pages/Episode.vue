@@ -23,8 +23,8 @@ export default {
     }
     this.pageNumber = this.$route.query.page
     api('GET',
-      // process.env.API_ENDPOINT + '/episodes/' + ,this.$route.params.episodeNumber,
-      'https://api.myjson.com/bins/f5jx0',
+      process.env.API_ENDPOINT + '/episodes/' + this.$route.params.episodeNumber,
+      // 'https://api.myjson.com/bins/f5jx0',
       {}
     ).then(response => {
       this.episode = response.data
