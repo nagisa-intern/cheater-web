@@ -19,15 +19,15 @@ export default {
   },
   created () {
     api('GET',
-      // process.env.API_ENDPOINT + '/ranking?number=11',
-      'https://api.myjson.com/bins/tdt9w',
+      process.env.API_ENDPOINT + '/ranking?number=11',
+      // 'https://api.myjson.com/bins/tdt9w',
       {}
     ).then(response => {
       this.pages = response.data
     })
     api('GET',
-      // process.env.API_ENDPOINT + '/comics_list?number=10',
-      'https://api.myjson.com/bins/c6dw4',
+      process.env.API_ENDPOINT + '/comics_list?number=10',
+      // 'https://api.myjson.com/bins/c6dw4',
       {}
     ).then(response => {
       this.comics = response.data
