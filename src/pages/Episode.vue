@@ -9,11 +9,12 @@ div
   img(:src="getImage()")
 </template>
 <script>
+import api from '@/utils/Api'
 export default {
   data () {
     return {
-      pageNumber: 0,
-      pageMax: 4
+      episode: {},
+      pageNumber: 0
     }
   },
   created () {
@@ -21,6 +22,13 @@ export default {
       this.$router.push({query: { page: 0 }})
     }
     this.pageNumber = this.$route.query.page
+    api('GET',
+      // process.env.API_ENDPOINT + '/episodes/' + ,this.$route.params.episodeNumber,
+      'https://api.myjson.com/bins/f5jx0',
+      {}
+    ).then(response => {
+      this.episode = response.data
+    })
   },
   methods: {
     getImage () {
@@ -31,7 +39,7 @@ export default {
       if (newPageNumber < 0) {
         return
       }
-      if (this.pageMax < newPageNumber) {
+      if (this.episode.pages.length < newPageNumber) {
         return
       }
       this.$router.push({query: { page: newPageNumber }})

@@ -14,7 +14,8 @@ export default {
   data () {
     return {
       pages: [],
-      comics: []
+      comics: [],
+      even: true
     }
   },
   created () {
@@ -32,6 +33,21 @@ export default {
     ).then(response => {
       this.comics = response.data
     })
+    setInterval(() => {
+      this.getRanking()
+    }, 5000)
+  },
+  methods: {
+    getRanking () {
+      this.even = !this.even
+      api('GET',
+        // process.env.API_ENDPOINT + '/ranking?number=11',
+        this.even ? 'https://api.myjson.com/bins/tdt9w' : 'https://api.myjson.com/bins/12dgic',
+        {}
+      ).then(response => {
+        this.pages = response.data
+      })
+    }
   }
 }
 </script>

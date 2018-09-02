@@ -1,7 +1,7 @@
 <template lang="pug">
 div
   router-link(
-    :to="{name: 'Episode', params: {comidId: comicId, episodeNumber: episode.episode_number}}")
+    :to="{name: 'Episode', params: {comidId: comicId, episodeNumber: episode.episode}}")
     img.episode__thumb(:src="getImage()")
     .episode__title
       h2 {{ episode.title }}
