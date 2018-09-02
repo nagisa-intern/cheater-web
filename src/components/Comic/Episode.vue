@@ -1,6 +1,6 @@
 <template lang="pug">
-div
-  router-link(
+div.episode
+  router-link.link(
     :to="{name: 'Episode', params: {comidId: comicId, episodeNumber: episode.episode}}")
     img.episode__thumb(:src="getImage()")
     .episode__title
@@ -26,11 +26,26 @@ export default {
 </script>
 <style lang="scss" scoped>
 .episode {
+  width: calc(100% / 5 - 30px);
+  border: 1px solid #333;
+  position: relative;
+  margin: 5px;
   &__thumb {
-    width: 200px;
+    width: 100%;
+    &:hover {
+      filter: opacity(75%);
+    }
   }
   &__title {
+    position: absolute;
     vertical-align: middle;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 5px 10px;
+    h2 {
+      color: white;
+    }
     > * {
       display: inline-block;
     }

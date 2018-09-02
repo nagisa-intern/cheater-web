@@ -28,7 +28,7 @@ export default {
       this.pages = response.data
     })
     api('GET',
-      process.env.API_ENDPOINT + '/comics_list?number=10',
+      process.env.API_ENDPOINT + '/comics_list?number=17',
       // 'https://api.myjson.com/bins/c6dw4',
       {}
     ).then(response => {

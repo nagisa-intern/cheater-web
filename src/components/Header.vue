@@ -4,7 +4,7 @@
     icon.icon(name="home")
   div.header__user
     icon.icon(name="user")
-    | ちーた
+    | なぎさ はなこ
 </template>
 <script>
 export default {

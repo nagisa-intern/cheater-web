@@ -11,7 +11,7 @@ export default {
   props: ['comic'],
   methods: {
     getThumb () {
-      return `https://s3-ap-northeast-1.amazonaws.com/nagisa-intern/comic/${this.comic.id}/square_thumb.jpeg`
+      return `https://s3-ap-northeast-1.amazonaws.com/nagisa-intern/comic/${this.comic.id}/rec_thumb.jpeg`
     }
   }
 }

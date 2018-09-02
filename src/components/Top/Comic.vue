@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+div.comic
   router-link(:to="{ name: 'Comic', params: { comicId: comic.id } }")
     img(:src="getImage()")
 </template>
@@ -14,4 +14,14 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.comic {
+  width: calc(100% / 5 - 30px);
+  margin: 5px;
+  &:hover {
+    filter: opacity(75%);
+  }
+  img {
+    width: 100%;
+  }
+}
 </style>
