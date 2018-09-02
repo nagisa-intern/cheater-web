@@ -41,8 +41,9 @@ img {
 }
 .-first {
   img {
-    width: 400px;
-    height: 600px;
+    $base: 360px;
+    width: $base;
+    height: calc(#{$base} * 1.5);
   }
   .ranking {
     background-color: gold;
@@ -53,8 +54,9 @@ img {
 }
 .-second {
   img {
-    width: 360px;
-    height: 540px;
+    $base: 320px;
+    width: $base;
+    height: calc(#{$base} * 1.5);
   }
   .ranking {
     background-color: silver;
@@ -65,8 +67,9 @@ img {
 }
 .-third {
   img {
-    width: 300px;
-    height: 450px;
+    $base: 280px;
+    width: $base;
+    height: calc(#{$base} * 1.5);
   }
   .ranking {
     background-color: brown;
@@ -76,8 +79,9 @@ img {
 }
 .-normal {
   img {
-    width: 200px;
-    height: 300px;
+    $base: 180px;
+    width: $base;
+    height: calc(#{$base} * 1.5);
   }
 }
 </style>
